@@ -1,0 +1,1169 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+:root {
+    /*Tipografía*/
+    --font-family: 'Raleway', sans-serif;
+    /*Color de fuente*/
+    --font-color: #464646;
+    /*Color de fuente secundaria*/
+    --font-color-two: #ffffff;
+    /*  */
+    --background-color: ;
+    /*Color de fondo principal*/
+    --color-fondo-primario: #F5F5F5;
+    /*Color de fuente secundario*/
+    --color-fondo-secundario: #EAF2FD;
+    /*Color primario boton*/
+    --color-botones-primario: #2A7AE4;
+
+    /*368px*/
+    --ancho-alto-foto-Escritorio: 23em;
+    /*146px*/
+    --ancho-alto-foto-Tablet: 9.125em;
+    /*98px*/
+    --ancho-alto-foto-Celular: 6.125em;
+
+
+    /*88px*/
+    --altura-header-Escritorio: 5.5em;
+    /*80px*/
+    --altura-header-Tablet: 5em;
+    /*32px*/
+    --altura-menu-Tablet: 2em;
+    /*124.483pxpx*/
+    --altura-header-Celular: 7.1em;
+
+
+    --altura-seccionPresentacion: calc(100vh - var(--altura-header-Escritorio));
+    --altura-seccionPresentacion-Celular: calc(100vh - var(--altura-header-Celular));
+    /*Para tablet*/
+    --altura-seccionPresentacion-Tablet: calc(100vh - var(--altura-header-Tablet));
+    /*<------------------Tamaños de letra------------------*/
+    /*<----Escritorio---->*/
+    /*52px*/
+    --tamañoLetraEscritorio-titulos: 3.25em;
+    /*32px*/
+    --tamañoLetraEscritorio-subtitulosSeccion: 2em;
+    /*22px*/
+    --tamañoLetraEscritorio-subtitulosDscImagen: 1.375em;
+    /*16px*/
+    --tamañoLetraEscritorio-parrafosYLinks-dscImagen-botones: 1em;
+
+    /*<----Tablet---->*/
+    /*22px*/
+    --tamañoLetraTablet-titulosYSubtitulos: 1.375em;
+    /*16px*/
+    --tamañoLetraTablet-parrafosYLinks-dscBienvenida-subtitulosDscImagen: 1em;
+    /*14px*/
+    --tamañoLetraTablet-parrafoSobreMi-dscImagenes-botones: 0.875em;
+
+    /*<----Móvil---->*/
+    /*22px*/
+    --tamañoLetraCelular-tituloBienvenida-subtitulosSeccion: 1.375em;
+    /*16px*/
+    --tamañoLetraCelular-subtituloDescripcionImagen: 1em;
+    /*14px*/
+    --tamañoLetraCelular-parrafosYLinks-descripcionImagen: 0.875em;
+
+    /*<------------------Tamaño container-------------------*/
+    --tamaño-containerMaxWidth: 71em;
+    --padding-tablet-celularHorizontal: 0 2em;
+    --padding-celularVertical: 0 1em;
+
+    /*Variable para centrar elementos horizontalmente*/
+    --centrar-con-margin: 0 auto;
+}
+
+html {
+    color: var(--font-color);
+    font-family: var(--font-family);
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/*<------------------------------------------Selectores Genéricos------------------------------------------>*/
+.font-style {
+    color: var(--font-color);
+    font-family: var(--font-family);
+}
+
+.link-style {
+    color: var(--font-color);
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.subtitulos {
+    font-size: var(--tamañoLetraEscritorio-subtitulosSeccion);
+    font-weight: 700;
+    margin: 0 0 2em 0;
+    ;
+    text-align: center;
+}
+
+.header-principal {
+    background-color: var(--color-botones-primario);
+    height: var(--altura-header-Escritorio);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: transform 0.4s;
+}
+
+.scroll-down .header-principal {
+    transform: translate3d(0, -100%, 0);
+}
+
+.scroll-up .header-principal {
+    transform: none;
+}
+
+.boton {
+    color: var(--color-botones-primario);
+    cursor: pointer;
+    background: transparent;
+    border: solid 0.1em var(--color-botones-primario);
+    font-size: var(--tamañoLetraEscritorio-parrafosYLinks-dscImagen-botones);
+    font-weight: 400;
+    margin: 0 1em 0 0;
+    padding: 1em;
+    text-decoration: none;
+    transition: all 0.5s ease-out;
+    width: fit-content;
+}
+
+.boton:hover {
+    background-color: var(--color-botones-primario);
+    color: var(--color-fondo-primario);
+}
+
+.boton--secundario {
+    color: var(--color-fondo-primario);
+    background: var(--color-botones-primario);
+}
+
+.boton--secundario:hover {
+    background-color: transparent;
+    color: var(--color-botones-primario);
+}
+
+.boton--bloqueado[type="submit"] {
+    background: #4e4b4b;
+    border: solid 0.1em #4e4b4b;
+    pointer-events: none;
+}
+
+.seccion-formulario-contacto {
+    background: var(--color-fondo-secundario);
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario__legend {
+    font-weight: 500;
+    margin: 0 0 2em 0;
+}
+
+.formulario__campos {
+    background: #ffffff;
+    border: 0 0 1px 0;
+    /* border-bottom: solid 1px #C8C8C8; */
+    border-radius: 4px;
+    display: block;
+    margin: 0 0 40px 0;
+    padding: 0.5em 12px;
+    position: static;
+}
+
+.formulario__campos--blue {
+    color: var(--color-botones-primario);
+    border-bottom: solid 1px var(--color-botones-primario);
+}
+
+.formulario__campos .formulario__label {
+    color: #5e4f4f;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.formulario__campo,
+.formulario__textarea {
+    border: none;
+    color: var(--font-color);
+    display: block;
+    font-weight: 400;
+    height: 20px;
+    margin: 4px 0 0 0;
+    width: 100%;
+}
+
+/* .formulario__span--error {
+    display: none;
+} */
+
+.formulario__campos--incorrecto {
+    align-items: center;
+    background: #b40000;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    font-size: 0.8em;
+    font-weight: 400;
+    justify-content: flex-start;
+    margin: 0.5em 0 0 0;
+    padding: 0.5em;
+    width: auto;
+}
+
+.formulario-container {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--altura-header-Escritorio) 0;
+}
+
+.formulario-container__imagen {
+    height: 593px;
+    width: 41%;
+}
+
+.formulario-container__imagen--contacto {
+    background: url('../img/contacto.png') no-repeat center / cover;
+}
+
+.formulario-container__contacto {
+    height: inherit;
+    width: 57%;
+}
+
+.formulario-container__subtitulo {
+    margin: 0 0 0.25em 0;
+    text-align: left;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .formulario-container {
+        padding: var(--altura-header-Tablet) 0;
+    }
+
+    .formulario-container__imagen {
+        display: none;
+    }
+
+    .formulario-container__contacto {
+        width: 100%;
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .formulario-container {
+        padding: var(--altura-header-Celular) 0;
+    }
+
+    /*Eliminando visualización de imagen de contacto*/
+    .formulario-container__imagen {
+        display: none;
+    }
+
+    .formulario-container__contacto {
+        width: 100%;
+    }
+}
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .boton {
+        font-size: var(--tamañoLetraTablet-parrafoSobreMi-dscImagenes-botones);
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .boton {
+        font-size: var(--tamañoLetraCelular-parrafosYLinks-descripcionImagen);
+    }
+}
+
+.header-principal__container {
+    align-items: center;
+    display: flex;
+    height: inherit;
+    justify-content: space-between;
+    margin: var(--centrar-con-margin);
+    max-width: var(--tamaño-containerMaxWidth);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    height: inherit;
+    justify-content: space-evenly;
+    max-width: 41.5em;
+    width: 100%;
+}
+
+.menu__link {
+    color: var(--color-fondo-primario);
+    font-weight: bold;
+}
+
+.logo-container .logo-container__link {
+    color: var(--color-fondo-primario);
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-decoration: none;
+}
+
+.container {
+    height: inherit;
+    margin: var(--centrar-con-margin);
+    max-width: var(--tamaño-containerMaxWidth);
+    width: 100%;
+}
+
+.seccion-principal {
+    width: 100%;
+    background-color: var(--color-fondo-primario);
+}
+
+.seccion-presentacion {
+    background-image: linear-gradient(90deg, rgba(245, 245, 245, 0.575) 50%,
+            rgba(245, 245, 245, 0.575) 100%), url('../img/fondo/fondo.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.seccion-sobre-mi {
+    align-items: center;
+    background-color: var(--color-fondo-secundario);
+    display: flex;
+}
+
+.datos-personales {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: space-between;
+    margin-top: 0;
+    width: inherit;
+}
+
+.datos-personales__presentacion {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+    margin-top: var(--altura-header-Escritorio);
+    width: 66.2%;
+}
+
+.datos-personales__titulo {
+    color: #2c2828;
+    font-size: var(--tamañoLetraEscritorio-titulos);
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.datos-personales__parrafo {
+    color: #2c2828;
+    font-size: var(--tamañoLetraEscritorio-subtitulosDscImagen);
+    font-weight: 500;
+    margin: 0.5em 0 0 0;
+}
+
+.datos-personales__contactos {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    width: 25.1em;
+}
+
+.datos-personales__contacto {
+    transition: all 0.5s ease-out;
+}
+
+.datos-personales__contacto:hover {
+    transform: translate(0, 0.3em);
+}
+
+.datos-personales__link {
+    align-items: center;
+    color: var(--font-color);
+    display: flex;
+    text-decoration: none;
+}
+
+.datos-personales__icono {
+    height: 2.5em;
+    width: 2.5em;
+}
+
+.datos-personales__icono--github {
+    background: url("../img/github.png") no-repeat center / cover;
+}
+
+.datos-personales__icono--linkedin {
+    background: url("../img/linkedin.png") no-repeat center / cover;
+}
+
+.datos-personales__icono--curriculum {
+    background: url("../img/curriculum.png") no-repeat center / cover;
+}
+
+.datos-personales__foto {
+    border-radius: 100%;
+    height: var(--ancho-alto-foto-Escritorio);
+    margin-top: var(--altura-header-Escritorio);
+    width: var(--ancho-alto-foto-Escritorio);
+}
+
+
+.biografia {
+    text-align: center;
+    padding: var(--altura-header-Escritorio) 0;
+    width: 100%;
+}
+
+.biografia__subtitulo {
+    margin: 0;
+}
+
+.biografia__parrafo {
+    line-height: 19px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.seccion-skills {
+    padding: var(--altura-header-Escritorio) 0;
+}
+
+.seccion-skills__icono {
+    width: 2.3125rem;
+    height: 2.3125rem;
+}
+
+.seccion-skills__icono--html5 {
+    background: url("../img/html5.svg") center / 100% 100% no-repeat;
+}
+
+.seccion-skills__icono--javascript {
+    background: url("../img/js.svg") center / 100% 100% no-repeat;
+}
+
+.seccion-skills__icono--css3 {
+    background: url("../img/css3.svg") center / 100% 100% no-repeat;
+}
+
+.seccion-skills__icono--java {
+    background: url("../img/java.png") center / 100% 100% no-repeat;
+}
+
+.seccion-skills__icono--mysql {
+    background: url("../img/mysql.png") center / 100% 100% no-repeat;
+}
+
+.seccion-skills__icono--git {
+    background: url("../img/git.png") center / 100% 100% no-repeat;
+}
+
+.seccion-skills__descripcion {
+    font-weight: 700;
+    margin: 0.5em 0 0 0;
+    width: 100%;
+}
+
+.lista-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11em, 1fr));
+    grid-template-rows: 1fr;
+    gap: 2em 1em;
+    list-style: none;
+    padding: 0;
+}
+
+.lista-grid__item {
+    background-color: #FFFFFF;
+    box-shadow: 9px 9px 9px 2px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    height: 10.875em;
+    justify-content: flex-end;
+    padding: 1em;
+}
+
+.seccion-experiencias-academicas {
+    background-color: var(--color-fondo-secundario);
+}
+
+.formacion-academica {
+    padding: var(--altura-header-Escritorio) 0;
+}
+
+.formacion-academica__instituciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(23em, 1fr));
+    grid-template-rows: 1fr;
+    gap: 2em 1em;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.formacion-academica__institucion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    width: inherit;
+}
+
+.formacion-academica__link {
+    display: inline-block;
+    width: inherit;
+}
+
+.formacion-academica__imagen {
+    height: 16em;
+    width: inherit;
+}
+
+.formacion-academica__info {
+    margin: 0.5em 0 0 0;
+}
+
+.formacion-academica__formacion {
+    font-size: var(--tamañoLetraEscritorio-subtitulosDscImagen);
+    font-weight: 700;
+    margin: 0 0 0.5em 0;
+}
+
+.formacion-academica__nombre {
+    font-size: var(--tamañoLetraEscritorio-parrafosYLinks-dscImagen-botones);
+    font-weight: 500;
+    margin: 0;
+}
+
+.experiencias-area {
+    padding: var(--altura-header-Escritorio) 0;
+}
+
+.experiencias-area__experiencia {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 4em 0;
+}
+
+.experiencias-area__experiencia:last-of-type {
+    margin: 0;
+}
+
+.experiencias-area__imagen {
+    height: 25.375em;
+    image-rendering: -webkit-optimize-contrast;
+    width: 66.198%;
+}
+
+.experiencias-area__video {
+    height: 25.375rem;
+    width: 66.198%;
+}
+
+.experiencias-area__imagen--orderPrimero,
+.experiencias-area__video--orderPrimero {
+    order: 0;
+}
+
+.experiencias-area__imagen--orderSegundo,
+.experiencias-area__video--orderSegundo {
+    order: 1;
+}
+
+.experiencias-area__descripciones {
+    display: flex;
+    background-image: linear-gradient(90deg, rgba(245, 245, 245, 0.575) 50%,
+            rgba(245, 245, 245, 0.575) 100%),
+        url('../img/fondo_descripciones.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 31.802%;
+}
+
+.experiencias-area__descripciones--orderSegundo {
+    order: 1;
+}
+
+.experiencias-area__descripciones--orderPrimero {
+    order: 0;
+}
+
+.experiencias-area__proyecto {
+    font-size: var(--tamañoLetraEscritorio-subtitulosDscImagen);
+    font-weight: 700;
+    margin: 0;
+}
+
+.experiencias-area__organizacion {
+    font-size: var(--tamañoLetraEscritorio-parrafosYLinks-dscImagen-botones);
+    font-weight: 500;
+    margin: 0.5em 0;
+}
+
+.experiencias-area__btns {
+    display: flex;
+    width: 100%;
+}
+
+.seccion-footer {
+    background-image: linear-gradient(90deg, rgba(245, 245, 245, 0.575) 50%,
+            rgba(245, 245, 245, 0.575) 100%),
+        url('../img/fondo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.seccion-footer__copyright {
+    padding: 2em 0;
+}
+
+
+.seccion-footer__datos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.seccion-footer__autor {
+    color: #2c2828;
+    font-weight: 500;
+}
+
+.seccion-footer__agradecimientos {
+    display: flex;
+    flex-direction: column;
+}
+
+.seccion-footer__parrafo {
+    color: #2c2828;
+    font-weight: 500;
+}
+
+.seccion-footer__link {
+    color: #2c2828;
+    line-height: 1.5em;
+    text-decoration: underline;
+    transition: 0.5s;
+}
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .seccion-footer {
+
+        background-image: linear-gradient(90deg, rgba(245, 245, 245, 0.575) 50%,
+                rgba(245, 245, 245, 0.575) 100%),
+            url('../../img/fondo/fondo_mobile.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .seccion-footer {
+
+        background-image: linear-gradient(90deg, rgba(245, 245, 245, 0.575) 50%,
+                rgba(245, 245, 245, 0.575) 100%),
+            url('../../img/fondo/fondo_mobile.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .seccion-footer__copyright {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .seccion-footer__autor {
+        text-align: center;
+    }
+
+    .seccion-footer__agradecimientos {
+        width: 100%;
+    }
+}
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .experiencias-area {
+        padding: var(--altura-header-Tablet) 0;
+    }
+
+    .experiencias-area__experiencia {
+        flex-direction: column;
+    }
+
+    .experiencias-area__imagen {
+        height: 25em;
+        width: 100%;
+    }
+
+    .experiencias-area__video {
+        height: 25em;
+        width: 100%;
+    }
+
+    .experiencias-area__imagen--orderPrimero,
+    .experiencias-area__video--orderPrimero {
+        order: 0;
+    }
+
+    .experiencias-area__imagen--orderSegundo,
+    .experiencias-area__video--orderSegundo {
+        order: 0;
+    }
+
+    .experiencias-area__descripciones {
+        background-position: center;
+        margin: 0.5em 0 0 0;
+        padding: 0 0 0.5em 0;
+        width: 100%;
+    }
+
+    .experiencias-area__descripciones--orderSegundo {
+        order: 0;
+    }
+
+    .experiencias-area__descripciones--orderPrimero {
+        order: 0;
+    }
+
+    .experiencias-area__proyecto {
+        font-size: var(--tamañoLetraTablet-parrafosYLinks-dscBienvenida-subtitulosDscImagen);
+    }
+
+    .experiencias-area__organizacion {
+        font-size: var(--tamañoLetraTablet-parrafoSobreMi-dscImagenes-botones);
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .experiencias-area {
+        padding: var(--altura-header-Celular) 0;
+    }
+
+    .experiencias-area__experiencia {
+        flex-direction: column;
+    }
+
+    .experiencias-area__imagen {
+        height: 12em;
+        width: 100%;
+    }
+
+    .experiencias-area__video {
+        height: 12em;
+        width: 100%;
+    }
+
+    .experiencias-area__imagen--orderPrimero,
+    .experiencias-area__video--orderPrimero {
+        order: 0;
+    }
+
+    .experiencias-area__imagen--orderSegundo,
+    .experiencias-area__video--orderSegundo {
+        order: 0;
+    }
+
+    @media only screen and (min-width: 428px) and (max-width: 767px) {
+        .experiencias-area__imagen {
+            width: 100%;
+            height: 20em;
+        }
+
+        .experiencias-area__video {
+            width: 100%;
+            height: 20em;
+        }
+    }
+
+    .experiencias-area__descripciones {
+        background-position: center;
+        margin: 0.5em 0 0 0;
+        padding: 0 0 0.5em 0;
+        width: 100%;
+    }
+
+    .experiencias-area__descripciones--orderSegundo {
+        order: 0;
+    }
+
+    .experiencias-area__descripciones--orderPrimero {
+        order: 0;
+    }
+
+    .experiencias-area__proyecto {
+        font-size: var(--tamañoLetraCelular-subtituloDescripcionImagen);
+    }
+
+    .experiencias-area__organizacion {
+        font-size: var(--tamañoLetraCelular-parrafosYLinks-descripcionImagen);
+    }
+}
+
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .formacion-academica {
+        padding: var(--altura-header-Tablet) 0;
+    }
+}
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1135px) {
+    .formacion-academica__instituciones {
+        grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+        grid-template-rows: 1fr;
+    }
+
+    .formacion-academica__institucion {
+        height: auto;
+        width: inherit;
+    }
+
+    .formacion-academica__imagen {
+        height: 10.375em;
+        width: inherit;
+    }
+
+    .formacion-academica__formacion {
+        font-size: var(--tamañoLetraTablet-parrafosYLinks-dscBienvenida-subtitulosDscImagen);
+    }
+
+    .formacion-academica__nombre {
+        font-size: var(--tamañoLetraTablet-parrafoSobreMi-dscImagenes-botones);
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .formacion-academica {
+        padding: var(--altura-header-Celular) 0;
+    }
+
+    .formacion-academica__instituciones {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .formacion-academica__institucion {
+        max-width: 18.5em;
+        width: 100%;
+    }
+
+    .formacion-academica__imagen {
+        height: 10.375em;
+        width: inherit;
+    }
+
+    .formacion-academica__formacion {
+        font-size: var(--tamañoLetraCelular-subtituloDescripcionImagen);
+    }
+
+    .formacion-academica__nombre {
+        font-size: var(--tamañoLetraCelular-parrafosYLinks-descripcionImagen);
+    }
+}
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .lista-grid {
+        grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .lista-grid__item {
+        height: 7.375rem;
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .lista-grid {
+        grid-template-columns: repeat(auto-fit, minmax(9.75em, 1fr));
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .lista-grid__item {
+        height: 7.375rem;
+    }
+}
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .seccion-skills {
+        padding: var(--altura-header-Tablet) 0;
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .seccion-skills {
+        padding: var(--altura-header-Celular) 0;
+    }
+}
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .biografia {
+        padding: var(--altura-header-Tablet) 0;
+    }
+
+    .biografia__subtitulo {
+        font-size: var(--tamañoLetraTablet-titulosYSubtitulos);
+    }
+    .biografia__parrafo {
+        font-size: var(--tamañoLetraTablet-parrafoSobreMi-dscImagenes-botones);
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .biografia {
+        padding: var(--altura-header-Celular) 0;
+    }
+    .biografia__subtitulo {
+        font-size: var(--tamañoLetraCelular-tituloBienvenida-subtitulosSeccion);
+    }
+
+    .biografia__parrafo {
+        font-size: var(--tamañoLetraCelular-parrafosYLinks-descripcionImagen);
+    }
+}
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .datos-personales {
+        height: 100vh;
+        margin-top: 0;
+    }
+
+    .datos-personales__presentacion {
+        height: auto;
+    }
+
+    .datos-personales__titulo {
+        font-size: var(--tamañoLetraTablet-titulosYSubtitulos);
+    }
+
+    .datos-personales__parrafo {
+        font-size: var(--tamañoLetraTablet-parrafosYLinks-dscBienvenida-subtitulosDscImagen);
+        font-weight: 500;
+    }
+
+    /*Estableciendo tamaño de foto para tablet*/
+    .datos-personales__foto {
+        height: var(--ancho-alto-foto-Tablet);
+        width: var(--ancho-alto-foto-Tablet);
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .datos-personales {
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    .datos-personales__presentacion {
+        height: auto;
+        margin-top: 0;
+        order: 1;
+        width: 100%;
+    }
+
+    .datos-personales__titulo {
+        font-size: var(--tamañoLetraCelular-tituloBienvenida-subtitulosSeccion);
+    }
+
+    .datos-personales__parrafo {
+        font-size: var(--tamañoLetraCelular-parrafosYLinks-descripcionImagen);
+        font-weight: 500;
+    }
+
+    .datos-personales__contactos {
+        width: 100%;
+    }
+
+    /*Estableciendo tamaño de letra 14px*/
+    .datos-personales__link {
+        font-size: var(--tamañoLetraCelular-parrafosYLinks-descripcionImagen);
+    }
+
+    /*Estableciendo tamaño de foto para Celulares*/
+    .datos-personales__foto {
+        height: var(--ancho-alto-foto-Celular);
+        margin-top: 0;
+        order: 0;
+        width: var(--ancho-alto-foto-Celular);
+    }
+}
+
+/*<----------------------------------------Fin Selectores Genéricos---------------------------------------->*/
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .subtitulos {
+        font-size: var(--tamañoLetraTablet-titulosYSubtitulos);
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .subtitulos {
+        font-size: var(--tamañoLetraCelular-tituloBienvenida-subtitulosSeccion);
+    }
+}
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .seccion-presentacion {
+        background-image: linear-gradient(90deg, rgba(245, 245, 245, 0.575) 50%,
+                rgba(245, 245, 245, 0.575) 100%), url('../img/fondo/fondo_mobile.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: bottom;
+        height: 100vh;
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .seccion-presentacion {
+        background-image: linear-gradient(90deg, rgba(245, 245, 245, 0.575) 50%,
+                rgba(245, 245, 245, 0.575) 100%), url('../img/fondo/fondo_mobile.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .container {
+        padding: var(--padding-tablet-celularHorizontal);
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .container {
+        padding: var(--padding-celularVertical);
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .header-principal {
+        height: var(--altura-header-Celular);
+    }
+
+    .header-principal__container {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .menu {
+        height: var(--altura-header-Tablet);
+        width: inherit;
+    }
+}
+
+/*Celulares verticales*/
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .menu {
+        display: none;
+        height: var(--altura-header-Celular);
+        max-width: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .menu__link {
+        border-top: solid 0.2em var(--font-color);
+        display: inherit;
+        font-size: var(--tamañoLetraCelular-parrafosYLinks-descripcionImagen);
+        font-weight: 500;
+        padding: 0.1em 0;
+        text-align: center;
+        transition: 0.2s ease-out;
+    }
+
+    .menu__link.link-style:hover {
+        transform: none;
+    }
+
+    .menu__link.link-style:active {
+        background-color: var(--font-color);
+        color: var(--color-fondo-primario);
+    }
+}
+
+/*Tablets y celulares grandes u horizontales*/
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    .header-principal {
+        height: var(--altura-header-Tablet);
+    }
+
+    .header-principal__container {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1170px) {
+    .logo-container .logo-container__link {
+        color: var(--color-fondo-primario);
+        font-weight: bold;
+        font-size: 2.5rem;
+        text-decoration: none;
+        padding: 25px;
+    }
+
+    .datos-personales__presentacion {
+        padding-left: 25px;
+    }
+}
